@@ -1,0 +1,36 @@
+Escape Characters
+
+\t
+Insert a tab in the text at this point.                        
+\b
+Insert a backspace in the text at this point.
+\n
+Insert a newline in the text at this point.
+\r
+Insert a carriage return in the text at this point.
+\f
+Insert a formfeed in the text at this point.
+\'
+Insert a single quote character in the text at this point.
+\"
+Insert a double quote character in the text at this point.
+\\
+Insert a backslash character in the text at this point.
+
+Basically it’s a way to avoid errors because of confusing syntax.
+To print the sentence
+She said "Hello!" to me.
+
+
+you would write
+System.out.println("She said \"Hello!\" to me.");
+
+
+ASCHII ART
+
+Uses characters from the ASCHII (there’s 95)
+I can print different characters in a certain order using the System.out.println statement to create it in Java.
+
+To create the monkey, I had to escape some of the backslashes by using the backslash. So, to print “\” I typed “\\”.
+
+To create the bear, I had to escape all the backslashes, in addition to all the quotes. I escaped the quotes by using \”.
