@@ -12,8 +12,7 @@ public class Questions
 		//Question_03
 		int h = 45;
 		int w = 64;
-		int a = 45*64;
-		System.out.println("The area of your rectangle is..." + a);
+		System.out.println("The area of your rectangle is..." + h*w);
 		
 		//Question_05
 		Scanner kb = new Scanner(System.in);
@@ -39,7 +38,7 @@ public class Questions
 		System.out.println("a	b	c\nd	e	f\ng	h	i");
 		
 		//Question_10
-		Scanner kb = new Scanner(System.in);
+		
 		System.out.println("Please enter your Math grade: ");
 		float math = kb.nextFloat();
 		System.out.println("Please enter your Science grade: ");
