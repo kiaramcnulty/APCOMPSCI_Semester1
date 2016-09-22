@@ -24,11 +24,14 @@ public class EX_01
 		System.out.println("Please enter price: ");
 		double price3 = kb.nextDouble();
 		
-		System.out.println("<<<<<<receipt>>>>>>");
+		System.out.println("<<<<<<<<<<<<<<<<__Receipt__>>>>>>>>>>>>>>>>");
 		
 		receipt.format(item1, price1);
 		receipt.format(item2, price2);
 		receipt.format(item3, price3);
+		
+		System.out.println("");
+		System.out.println("");
 		
 		double subtotal = price1 + price2 + price3;
 		double tax = subtotal * .08;
@@ -37,10 +40,13 @@ public class EX_01
 		receipt.format("Subtotal: ", subtotal);
 		receipt.format("Tax: ", tax);
 		receipt.format("Total: ", total);
+		
+		System.out.println("\n___________________________________________");
+		System.out.println("* Thank you for your support *");
 	}
 	
 	public void format(String item, double price)
 	{
-		//formatting here
+		System.out.printf("\n*%20s ........%10.2f", item, price);
 	}
 }
