@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Scope
 {
-	static String var1 = "Your numbers are... ";
+	static String var1 = "Your numbers are...";
 	static int var2;
 	static double var3;
 	
