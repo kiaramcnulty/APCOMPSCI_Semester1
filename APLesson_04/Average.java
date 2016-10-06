@@ -20,9 +20,9 @@ public class Average
 		average();
 		print();
 	}
-	public static double average()
+	public static void average()
 	{
-		return avg = (n1+n2+n3)/3;
+		avg = (n1+n2+n3)/3;
 	}
 	public static void print()
 	{

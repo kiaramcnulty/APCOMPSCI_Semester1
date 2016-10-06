@@ -14,9 +14,9 @@ public class Circle
 		calcArea();
 		print();
 	}
-	public static double calcArea()
+	public static void calcArea()
 	{
-		return area = 3.14*r*r;
+		area = 3.14*r*r;
 	}
 	public static void print()
 	{

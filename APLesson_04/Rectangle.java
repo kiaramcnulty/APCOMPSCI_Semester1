@@ -17,9 +17,9 @@ public class Rectangle
 		calcPerim();
 		print();
 	}
-	public static double calcPerim()
+	public static void calcPerim()
 	{
-		return perimeter = 2*l + 2*w;
+		perimeter = 2*l + 2*w;
 	}
 	public static void print()
 	{

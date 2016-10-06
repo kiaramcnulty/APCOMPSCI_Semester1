@@ -14,9 +14,9 @@ public class Cube
 		calcSurf();
 		print();
 	}
-	public static double calcSurf()
+	public static void calcSurf()
 	{
-		return sa = 6*side*side;
+		sa = 6*side*side;
 	}
 	public static void print()
 	{
