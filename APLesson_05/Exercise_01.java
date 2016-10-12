@@ -29,7 +29,7 @@ public class Exercise_01
 		{
 			winner = "the computer";
 		}
-		if (p1==cp1)
+		else
 		{
 			winner = "you. Tie goes to the human!";
 		}

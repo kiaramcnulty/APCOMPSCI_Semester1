@@ -57,7 +57,7 @@ public class Exercise_02
 		{
 			discount = .15*subtotal;
 		}
-		if (subtotal<2000)
+		else
 		{
 			discount = 0;
 		}
