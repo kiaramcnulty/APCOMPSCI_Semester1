@@ -3,6 +3,8 @@ public class dollar
 {
     static int center = 0;
     static int[] money;
+    static Scanner kb = new Scanner(System.in);
+    static int totalMoney;
 	public static void main(String[]args)
 	{
         startGame();
@@ -53,11 +55,13 @@ public class dollar
         }
         System.out.println("Center: " + center);
         printMoney();
+        checkIfDone(); //doesn't check between individual turns...
     }
     public static void printMoney()
     {
         for (int i = 0; i < money.length; i++)
         {
+            System.out.print("|| ");
             if (money[i] == 0)
                 System.out.print("X ");
             else
@@ -68,12 +72,12 @@ public class dollar
                 }
             }
             System.out.print("|| ");
+
         }
         System.out.println();
     }
     public static void startGame()
     {
-        Scanner kb = new Scanner(System.in);
         System.out.println("How many players will be in this game?");
         int numPlayers = kb.nextInt();
         kb.nextLine();
@@ -82,22 +86,41 @@ public class dollar
         {
             money[i] = 3;
         }
-        int totalMoney = money.length*3;
+        totalMoney = money.length*3;
         System.out.println("Center: 0");
-        printMoney();
-        while (center < (money.length*3)-1)
+        printMoney(); 
+        checkIfDone();
+    }
+    public static void checkIfDone()
+    {
+        int counter = 0;
+        for (int i = 0; i < money.length; i++)
         {
-            System.out.println("Press enter to complete a turn.");
-            String nextTurn = kb.nextLine();
+            if (money[i] != 0)
+                counter++;
+        }
+        if (counter != 1)
+        {
+            System.out.println("Press enter to take a turn.");
+            kb.nextLine();
             takeTurn();
         }
-        System.out.println("The player with money left wins $" + totalMoney + "! Game Over");
-        center = 0;
-        System.out.println("Play Again? 'y' or 'n'");
-        String playAgain = kb.next();
-        if (playAgain.equals("y"))
-            startGame();
         else
-            System.out.println("Thanks for playing!");
+        {
+            System.out.println("The player with money left wins $" + totalMoney + "! Game Over");
+            System.out.println("Play Again? 'y' or 'n'");
+            String playAgain = kb.next();
+            if (playAgain.equals("y"))
+            {
+                center = 0;
+                System.out.println();
+                System.out.println();
+                startGame();
+            }
+            else
+                System.out.println("Thanks for playing!");
+                System.out.println();
+                System.out.println();
+        }
     }
-}
+} 
