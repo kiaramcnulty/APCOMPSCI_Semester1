@@ -5,16 +5,17 @@ public class dollar
     static int[] money;
     static Scanner kb = new Scanner(System.in);
     static int totalMoney;
-	public static void main(String[]args)
-	{
+    public static void main(String[]args)
+    {
         startGame();
-	}
+    }
     public static void takeTurn()
     {
         for (int i = 0; i < money.length; i++)
         {
+            checkIfDone();
             int max = money[i];
-            if(money[i] > 0)
+            if(money[i] != 0)
             {
                 for (int j = 0; j < max && j < 3; j++)
                 {
@@ -49,19 +50,26 @@ public class dollar
                     {
                         System.out.print("K ");
                     }
-                }
+                }    
             } 
-            System.out.println(); 
+            else
+            {
+                System.out.print("X");
+            }
+            System.out.println();
         }
+        System.out.println(); 
         System.out.println("Center: " + center);
         printMoney();
-        checkIfDone(); //doesn't check between individual turns...
+        System.out.println("Press enter to take a turn.");
+        kb.nextLine();
+        takeTurn();
     }
     public static void printMoney()
     {
+        System.out.print("|| ");
         for (int i = 0; i < money.length; i++)
         {
-            System.out.print("|| ");
             if (money[i] == 0)
                 System.out.print("X ");
             else
@@ -72,7 +80,6 @@ public class dollar
                 }
             }
             System.out.print("|| ");
-
         }
         System.out.println();
     }
@@ -81,6 +88,7 @@ public class dollar
         System.out.println("How many players will be in this game?");
         int numPlayers = kb.nextInt();
         kb.nextLine();
+        System.out.println();
         money = new int[numPlayers];
         for (int i = 0; i < numPlayers; i++)
         {
@@ -89,7 +97,9 @@ public class dollar
         totalMoney = money.length*3;
         System.out.println("Center: 0");
         printMoney(); 
-        checkIfDone();
+        System.out.println("Press enter to take a turn.");
+        kb.nextLine();
+        takeTurn();
     }
     public static void checkIfDone()
     {
@@ -99,14 +109,10 @@ public class dollar
             if (money[i] != 0)
                 counter++;
         }
-        if (counter != 1)
+        if (counter == 1)
         {
-            System.out.println("Press enter to take a turn.");
-            kb.nextLine();
-            takeTurn();
-        }
-        else
-        {
+            System.out.println();
+            printMoney();
             System.out.println("The player with money left wins $" + totalMoney + "! Game Over");
             System.out.println("Play Again? 'y' or 'n'");
             String playAgain = kb.next();
@@ -118,9 +124,12 @@ public class dollar
                 startGame();
             }
             else
+            {
                 System.out.println("Thanks for playing!");
                 System.out.println();
                 System.out.println();
+                System.exit(0);
+            }
         }
     }
 } 
