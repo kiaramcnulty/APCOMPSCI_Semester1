@@ -13,57 +13,67 @@ public class dollar
     {
         for (int i = 0; i < money.length; i++)
         {
-            checkIfDone();
-            int max = money[i];
-            if(money[i] != 0)
-            {
-                for (int j = 0; j < max && j < 3; j++)
+            if(checkIfDone())
+            {       
+                int max = money[i];
+                if(money[i] != 0)
                 {
-                    int roll = (int)(Math.random()*6)+1;
-                    if (roll == 1)
+                    for (int j = 0; j < max && j < 3; j++)
                     {
-                        System.out.print("C ");
-                        center += 1;
-                        money[i] -= 1;
-                    }
-                    else if (roll == 2)
-                    {
-                        System.out.print("L ");
-                        money[i] -= 1;
-                        // move dollar left
-                        if (i == 0)
-                            money[money.length-1] += 1;
+                        int roll = (int)(Math.random()*6)+1;
+                        if (roll == 1)
+                        {
+                            System.out.print("C ");
+                            center += 1;
+                            money[i] -= 1;
+                        }
+                        else if (roll == 2)
+                        {
+                            System.out.print("L ");
+                            money[i] -= 1;
+                            // move dollar left
+                            if (i == 0)
+                                money[money.length-1] += 1;
+                            else
+                                money[i-1] += 1;
+                        }
+                        else if (roll == 3)
+                        {
+                            System.out.print("R ");
+                            money[i] -= 1;
+                            // move dollar right
+                            if (i == money.length-1)
+                                money[0] += 1;
+                            else
+                                money[i+1] += 1;
+                        }
                         else
-                            money[i-1] += 1;
-                    }
-                    else if (roll == 3)
-                    {
-                        System.out.print("R ");
-                        money[i] -= 1;
-                        // move dollar right
-                        if (i == money.length-1)
-                            money[0] += 1;
-                        else
-                            money[i+1] += 1;
-                    }
-                    else
-                    {
-                        System.out.print("K ");
-                    }
-                }    
-            } 
+                        {
+                            System.out.print("K ");
+                        }
+                    }    
+                } 
+                else
+                {
+                    System.out.print("X");
+                }
+                System.out.println();
+            }
             else
             {
-                System.out.print("X");
+                System.exit(0); //not best solution...
             }
-            System.out.println();
         }
-        System.out.println(); 
-        System.out.println("Center: " + center);
-        printMoney();
-        System.out.println("Press enter to take a turn.");
-        kb.nextLine();
-        takeTurn();
+        if(checkIfDone())
+        {
+            System.out.println(); 
+            System.out.println("Center: " + center);
+            printMoney();
+            System.out.println("Press enter to take a turn.");
+            kb.nextLine();
+            takeTurn();
+        }
+        
     }
     public static void printMoney()
     {
@@ -101,7 +111,7 @@ public class dollar
         kb.nextLine();
         takeTurn();
     }
-    public static void checkIfDone()
+    public static boolean checkIfDone()
     {
         int counter = 0;
         for (int i = 0; i < money.length; i++)
@@ -121,15 +131,15 @@ public class dollar
                 center = 0;
                 System.out.println();
                 System.out.println();
-                startGame();
             }
             else
             {
                 System.out.println("Thanks for playing!");
                 System.out.println();
                 System.out.println();
-                System.exit(0);
+                return false;
             }
         }
+        return true;
     }
 } 
