@@ -61,7 +61,7 @@ public class dollar
             }
             else
             {
-                System.exit(0); //not best solution...
+                break;
             }
         }
         if(checkIfDone())
@@ -73,7 +73,6 @@ public class dollar
             kb.nextLine();
             takeTurn();
         }
-        
     }
     public static void printMoney()
     {
