@@ -1,48 +1,39 @@
 import java.lang.Math.*;
-public class Distance
+public class distance
 {
-	private int x1, y1, x2, y2;
-	private double distance;
+	private int xOne, yOne, xTwo, yTwo;
+	private double finalDistance;
 	
 	public distance()
 	{
-		x1 = 0;
-		y1 = 0;
-		x2 = 0;
-		y2 = 0;
+		xOne = 0;
+		yOne = 0;
+		xTwo = 0;
+		yTwo = 0;
+		finalDistance = 0;
 	}
 	
-	public MPH(int xOne, int yOne, int xTwo, int yTwo)
+	public distance(int x1, int y1, int x2, int y2)
 	{
-		x1 = xOne;
-		y1 = yOne;
-		x2 = xTwo;
-		y2 = yTwo;
+		xOne = x1;
+		yOne = y1;
+		xTwo = x2;
+		yTwo = y2;
+		finalDistance = 0;
 	}
 	
-	// all below needs to be replaced
-	public void setParams(int d, int h, int m)
+	public void setValues(int x1, int y1, int x2, int y2)
 	{
-		distance = d;
-		hours = h;
-		minutes = m;
+		xOne = x1;
+		yOne = y1;
+		xTwo = x2;
+		yTwo = y2;
+		finalDistance = 0;
 	}
 	
-	public int getDistance()
+	public double getDistance()
 	{
-		return distance;
-	}
-	public int getHours()
-	{
-		return hours;
-	}
-	public int getMinutes()
-	{
-		return minutes;
-	}
-	public double getMPHR()
-	{
-		mphr = distance /(double)(hours + minutes/60.00);
-		return mphr;
+		finalDistance = Math.sqrt((xTwo-xOne)*(xTwo-xOne)+(yTwo-yOne)*(yTwo-yOne));
+		return finalDistance;
 	}
 }
