@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class ReverseCrypto100
 {
-	static String decode;
     public static void main(String[]args)
     {
 		Scanner kb = new Scanner(System.in);
@@ -33,25 +32,5 @@ public class ReverseCrypto100
 			}
 		}
 		System.out.println(output);
-
-/*
-		System.out.println("Decode?");
-		String answer = kb.next();
-		if (answer == 'y')
-		{
-			decode(output);
-		}
 	}
-	public static void decode(o)
-	{
-		decoded = "";
-		for (int i = 0; i < o; i++)
-		{
-			decoded += i[o]
-		}
-	}
-	*/
-	}
-
-	
 }
