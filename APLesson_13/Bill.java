@@ -8,7 +8,7 @@ public class Bill extends Money
 		face = "";
 	}
 	
-	public Bill(string n, String f, double v)
+	public Bill(String n, String f, double v)
 	{
 		super(n, v);
 		face = f;

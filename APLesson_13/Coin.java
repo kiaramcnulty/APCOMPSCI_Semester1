@@ -1,17 +1,23 @@
 public class Coin extends Money
 {
-	private double weight;
+	private String name, weight;
+	private double value;
 	
-	public Coin
+	public Coin()
 	{
 		super();
 		this.weight = 0;
 	}
 	
-	public Coin(String n, double w, double v)
+	public Coin(String n, String w, double v)
 	{
 		super(n, v);
-		weight = w;
+		this.weight = w;
+	}
+	
+	public String scan()
+	{
+		return weight;
 	}
 	
 	public String toString()
