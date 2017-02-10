@@ -1,42 +1,68 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 public class ToyStore
 {
-	ArrayList<Toy> toyList; = new ArrayList<Toy>();
+	ArrayList<Toy> toyList;
 	
-	public toyStore()
+	public ToyStore()
 	{
-		//loadtoys?
+		toyList = new ArrayList<Toy>();
 	}
 	
-	public toyStore(String list)
+	public ToyStore(String list)
 	{
 		loadToys(list);
 	}
 	
-	public static void loadToys(String ts)
+	public void loadToys(String ts)
 	{
-		ArrayList<String> toys = ts.split(", ");
-		for (int i = 0; i < toys.size(); i++)
+		toyList = new ArrayList<Toy>();
+		ArrayList<String> toys = new ArrayList<>(Arrays.asList(ts.split(", ")));
+		for (int i = 0; i < toys.size(); i+=2)
 		{
-			String name = toys[i];
-			String type = toys[i + 1];
+			String name = toys.get(i);
+			String type = toys.get(i+1);
 			Toy t = getThatToy(name);
-			if (t.equals(null))
-				////////////DO THIS
+			if (t == null)
+			{
+				if (type.equals("Car"))
+					toyList.add(new Car(name));
+				if (type.equals("AF"))
+					toyList.add(new AFigure(name));
+			}
+			else
+			{
+				t.setCount(t.getCount()+1);
+			}
 		}
 	}
 	
-	public static Toy getThatToy(String nm)
+	public Toy getThatToy(String nm)
 	{
 		for (Toy t : toyList)
 		{
 			if (t.getName().equals(nm))
-				return toy;
-			return null;
+				return t;
 		}
+		return null;
 	}
 	
-	public static String getMostFrequentType()
+	public String getMostFrequentToy()
+	{
+		String name = "";
+		int max = Integer.MIN_VALUE;
+		for (Toy t : toyList)
+		{
+			if (max < t.getCount())
+			{
+				max = t.getCount();
+				name = t.getName();
+			}
+		}
+		return name;
+	}
+	
+	public String getMostFrequentType()
 	{
 		int cars = 0;
 		int figures = 0;
@@ -45,8 +71,8 @@ public class ToyStore
 		{
 			if (t.getType().equals("Car"))
 				cars += 1;
-			if (t.getType().equals("Action Figure")
-				figure +=1;
+			if (t.getType().equals("Action Figure"))
+				figures +=1;
 		}
 		
 		if (cars>figures)
@@ -62,6 +88,6 @@ public class ToyStore
 	
 	public String toString()
 	{
-		return toyList;
+		return "" + toyList;
 	}
 }
