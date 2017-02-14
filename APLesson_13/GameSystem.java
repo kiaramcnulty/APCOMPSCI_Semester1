@@ -15,7 +15,7 @@ public abstract class GameSystem
 	}
 	public String getPlatform()
 	{
-		return platform
+		return platform;
 	}
 	public int getSerialNo()
 	{
