@@ -5,19 +5,14 @@ public class PlayStation extends Console
 		super();
 	}
 	
+	public PlayStation(String p)
+	{
+		super(p);
+	}
+	
 	public String getController()
 	{
 		return "PS Dual Shock 3";
 	}
 	
-	// fix ALL below...
-	public String getPlatform()
-	{
-		return "XBox"; //?
-	}
-	
-	public String toString()
-	{
-		return "Platform: " + super.getPlatform() + "\nSerial #: " + super.getSerialNo() + "\nController: " + super.getController();
-	}
 }

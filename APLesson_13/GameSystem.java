@@ -21,5 +21,9 @@ public abstract class GameSystem
 	{
 		return serialNo;
 	}
+	public String toString()
+	{
+		return "Platform: " + platform + "\nSerial #: " + serialNo;
+	}
 }
 
