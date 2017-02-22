@@ -2,9 +2,9 @@ public class studentAdvance extends advance
 {
 	private int daysLeft;
 	
-	public studentAdvance()
+	public studentAdvance(int dl)
 	{
-		super();
+		super(dl);
 	}
 	
 	public double getPrice()

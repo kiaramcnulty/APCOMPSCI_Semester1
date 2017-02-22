@@ -10,7 +10,7 @@ public class advance extends ticket
 	
 	public double getPrice()
 	{
-		if (dayLeft >= 10)
+		if (daysLeft >= 10)
 			return 30;
 		else
 			return 40;

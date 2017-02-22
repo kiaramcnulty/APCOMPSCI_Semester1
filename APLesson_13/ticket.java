@@ -1,4 +1,4 @@
-public class ticket
+public abstract class ticket
 {
 	int serialNo;
 	
@@ -16,6 +16,6 @@ public class ticket
 	
 	public String toString()
 	{
-		return "Serial #: " + serialNo + "\nPrice: " + getPrice();
+		return "Serial #: " + serialNo + "\nPrice: $" + getPrice();
 	}
 }
