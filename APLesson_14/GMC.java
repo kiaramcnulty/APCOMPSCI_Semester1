@@ -1,6 +1,6 @@
 public class GMC implements Location
 {
-	double[]location;
+	private double[]location;
 	
 	public GMC()
 	{
@@ -18,7 +18,7 @@ public class GMC implements Location
 		return (int)(Math.random()* 900000)+100000;
 	}
 	
-	public move(double x2, double y2)
+	public void move(double x2, double y2)
 	{
 		location[0] += x2;
 		location[1] += y2;
