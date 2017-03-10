@@ -1,4 +1,4 @@
-public class GMC implements Location
+public class GMC extends Car
 {
 	private double[]location;
 	
@@ -8,20 +8,9 @@ public class GMC implements Location
 	}
 	public GMC(double x1, double y1)
 	{
-		double location[] = new double[2];
+		location = new double[2];
 		location[0] = x1;
 		location[1] = y1;
-	}
-	
-	public int getID()
-	{
-		return (int)(Math.random()* 900000)+100000;
-	}
-	
-	public void move(double x2, double y2)
-	{
-		location[0] += x2;
-		location[1] += y2;
 	}
 	
 	public double[] getLoc()

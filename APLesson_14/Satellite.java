@@ -30,6 +30,7 @@ public class Satellite
        for (Location l : locate)
        {
            printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc(), home)+ ")";
+		   ((Car)l).getID();
        }
 
 
