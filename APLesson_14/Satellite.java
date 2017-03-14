@@ -19,17 +19,39 @@ public class Satellite
 
        for (Location l : locate)
        {
-           printout += "\nLocation for " + l.getID() + ": (" + getLocation(l.getLoc()) + ")";
+           printout += "\nLocation for " + ((Car)l).getID() + ": (" + getLocation(l.getLoc()) + ")";
        }
 
 
-       printout += "\n\n" + "==========================" +
+        printout += "\n\n" + "==========================" +
                    "\nDistance from home...";
 
 
        for (Location l : locate)
        {
-           printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc(), home)+ ")";
+           printout += "\nDistance for " + ((Car)l).getID() + ": (" + getDistance(l.getLoc(), home)+ ")";
+		   ((Car)l).getID();
+       }
+	   
+	   printout += "\n\n" + "==========================" +
+					"\nMovement...";
+	   
+	   double one = 5;
+	   double two = 15;
+	   for (Location l : locate)
+       {
+		   ((Car)l).move(one, two);
+		   
+		   printout += "\nAfter " + ((Car)l).getID() + " Moved " + "(" + one + ", " + two + ")\nNew Location: " + "(" + getLocation(l.getLoc()) + ")\n"; 
+       }
+	   
+	    printout += "\n" + "==========================" +
+                    "\nDistance from home...";
+
+
+       for (Location l : locate)
+       {
+           printout += "\nDistance for " + ((Car)l).getID() + ": (" + getDistance(l.getLoc(), home)+ ")";
 		   ((Car)l).getID();
        }
 
