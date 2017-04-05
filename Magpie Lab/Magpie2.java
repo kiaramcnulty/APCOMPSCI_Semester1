@@ -81,8 +81,8 @@ public class Magpie2
 		/* New String variable phrase = a more searchable version of statement.
 		 	-Use a combination of trim() and toLowerCase() modify statement. */
 		String phrase = statement;
-		phrase = statement.trim();
-		phrase = statement.toLowerCase();
+		goal = goal.trim().toLowerCase();
+		phrase = statement.trim().toLowerCase();
 		
 		/*   New int variable psn = the location of goal in phrase after
 		   startPos */
@@ -99,22 +99,21 @@ public class Magpie2
 					set before = the slot in phrase before psn */
 		while(psn >= 0)
 		{
+			String before = "";
+			String after = "";
 			if (psn > 0)
 			{
-				String before = phrase.substring(psn-1, psn);
-				
-				if (psn + goal.length() < phrase.length())
-				{
-					String after = phrase.substring(psn + 1 + goal.length(), psn + 2 + goal.length());
-					
-					if ((before.compareTo("a") < 0 || before.compareTo("z") > 0) &&
-						(after.compareTo("a") < 0 || after.compareTo("z") > 0))
-					{		
-						return psn;
-					}	
-				}
+				before = phrase.substring(psn-1, psn);
 			}
-			
+			if (psn + goal.length() < phrase.length())
+			{
+				after = phrase.substring(psn + goal.length(), psn + 1 + goal.length());	
+			}
+			if ((before.compareTo("a") < 0 || before.compareTo("z") > 0) &&
+				(after.compareTo("a") < 0 || after.compareTo("z") > 0))
+			{		
+				return psn;
+			}
 			psn = phrase.indexOf(goal, psn+1);
 					//====>code here 
 
