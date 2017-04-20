@@ -130,5 +130,21 @@ public class IntArrayWorker
     }
     return max;
   }
+  
+  public int getColTotal(int num)
+  {
+    int total = 0;
+    for (int row = 0; row < matrix.length; row++)
+    {
+      for (int col = 0; col < matrix[0].length; col++)
+      {
+		if (col == num)
+		{
+			total = total + matrix[row][col];
+		}
+      }
+    }
+    return total;
+  }
  
 }
