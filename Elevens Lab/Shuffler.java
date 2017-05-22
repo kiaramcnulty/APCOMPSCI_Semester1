@@ -55,13 +55,13 @@ public class Shuffler {
 		int k = 0;
 		for (int j = 0; j<25;j++)
 		{
-			shuffled[k] = cards[j];
+			shuffled[k] = values[j];
 			k += 2;
 		}
 		k = 1;
 		for (int j = 26; j <52: j++)
 		{
-			shuffled[k] = cards[j];
+			shuffled[k] = values[j];
 			k +=2;
 		}
 	}
@@ -86,9 +86,10 @@ public class Shuffler {
 			while (this.isEmpty() == true)
 			{
 				j = (int)(Math.random()*52);
+				int temp = values[j];
+				values[j] = values[k];
+				values[k] = temp;
 			}
-			shuffled[k] = cards[j];
-			cards[j] = null;
 		}
 	}
 }

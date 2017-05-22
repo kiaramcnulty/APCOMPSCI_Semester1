@@ -13,5 +13,8 @@ public class DeckTester {
 		String[] suits = {"hearts", "spades", "diamonds"};
 		int[] pointValues = {10, 10, 10};
 		Deck d = new Deck(ranks, suits, pointValues);
+		System.out.println(d);
+		d.shuffle();
+		System.out.println(d);
 	}
 }
