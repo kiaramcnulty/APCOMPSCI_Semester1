@@ -16,13 +16,13 @@ public class MagpieRunner2
 		Magpie2 maggie = new Magpie2();
 		
 		System.out.println (maggie.getGreeting());
-		Scanner in = new Scanner (System.in);
-		String statement = in.nextLine();
+		Scanner kb = new Scanner (System.in);
+		String statement = kb.nextLine();
 		
 		while (!statement.equals("Bye"))
 		{
 			System.out.println (maggie.getResponse(statement));
-			statement = in.nextLine();
+			statement = kb.nextLine();
 		}
 	}
 
