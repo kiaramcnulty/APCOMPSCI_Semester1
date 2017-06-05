@@ -7,7 +7,7 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 4;
 
 
 	/**
@@ -17,7 +17,7 @@ public class Shuffler {
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
-		int[] values1 = {0, 1, 2, 3};
+		int[] values1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			perfectShuffle(values1);
 			System.out.print("  " + j + ":");
@@ -30,7 +30,7 @@ public class Shuffler {
 
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
-		int[] values2 = {0, 1, 2, 3};
+		int[] values2 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");
@@ -51,22 +51,22 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		int[] shuffled = new int[52];
+		int[] shuffled = new int[14];
 		int k = 0;
-		for (int j = 0; j<25;j++)
+		for (int j = 0; j<7;j++)
 		{
 			shuffled[k] = values[j];
 			k += 2;
 		}
 		k = 1;
-		for (int j = 26; j <52: j++)
+		for (int j = 7; j <14; j++)
 		{
 			shuffled[k] = values[j];
 			k +=2;
 		}
 	}
 
-	/**
+	/*
 	 * Apply an "efficient selection shuffle" to the argument.
 	 * The selection shuffle algorithm conceptually maintains two sequences
 	 * of cards: the selected cards (initially empty) and the not-yet-selected
@@ -78,18 +78,13 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		int[] shuffled = new int[52];
-		int j = 0;
-		for (int k = 0; k <52; k++)
+		for (int k = 0; k <14; k++)
 		{
-			while (this.isEmpty() == true)
-			{
-				j = (int)(Math.random()*52);
-				int temp = values[j];
-				values[j] = values[k];
-				values[k] = temp;
-			}
+			int j = (int)(Math.random()*14);
+			int temp = values[j];
+			values[j] = values[k];
+			values[k] = temp;
+
 		}
 	}
 }

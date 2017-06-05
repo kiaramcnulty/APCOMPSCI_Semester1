@@ -9,9 +9,9 @@ public class DeckTester {
 	 */
 	public static void main(String[] args) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		String[] ranks = {"jack","queen","king"};
-		String[] suits = {"hearts", "spades", "diamonds"};
-		int[] pointValues = {10, 10, 10};
+		String[] ranks = {"ace","2","3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"};
+		String[] suits = {"hearts", "spades", "diamonds", "clubs"};
+		int[] pointValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 		Deck d = new Deck(ranks, suits, pointValues);
 		System.out.println(d);
 		d.shuffle();
